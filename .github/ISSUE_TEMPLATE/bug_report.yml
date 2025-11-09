@@ -1,0 +1,127 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in Cortex
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us resolve the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe the bug...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Expected behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Actual behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem
+      placeholder: Drag and drop images here...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: trading-mode
+    attributes:
+      label: Trading Mode
+      description: Which trading mode were you using?
+      options:
+        - Paper Trading
+        - Live Trading
+        - Not Applicable
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: llm-providers
+    attributes:
+      label: Affected LLM Providers
+      description: Which LLM providers are affected by this bug?
+      options:
+        - label: OpenAI
+        - label: Claude (Anthropic)
+        - label: DeepSeek
+        - label: Qwen
+        - label: All providers
+        - label: Not applicable
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Please provide details about your environment
+      value: |
+        - OS: [e.g., macOS, Windows, Linux]
+        - Node.js version: [e.g., 18.17.0]
+        - Browser: [e.g., Chrome 120, Firefox 121]
+        - Cortex version: [e.g., 0.1.0]
+        - Deployment: [e.g., Local, Docker, Synology NAS]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Please paste any relevant error messages or logs
+      placeholder: Paste error logs here...
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: Additional context...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
+        - label: I have provided all requested information
+          required: true
+        - label: This is a bug report, not a feature request or question
+          required: true

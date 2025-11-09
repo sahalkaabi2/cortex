@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # Next.js Application
+  app:
+    build: .
+    container_name: crypto-llm-trader
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Binance API
+      - BINANCE_API_KEY=${BINANCE_API_KEY}
+      - BINANCE_API_SECRET=${BINANCE_API_SECRET}
+
+      # LLM API Keys
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - QWEN_API_KEY=${QWEN_API_KEY}
+      - QWEN_REGION=${QWEN_REGION:-international}
+
+      # Supabase (if using cloud)
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+
+      # Node environment
+      - NODE_ENV=production
+
+    # Optional: if you want local PostgreSQL instead of Supabase
+    # depends_on:
+    #   - postgres
+
+    volumes:
+      # Persist any local data
+      - ./data:/app/data
+
+    networks:
+      - crypto-trader-network
+
+  # Optional: Local PostgreSQL (if not using Supabase cloud)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: crypto-trader-db
+  #   restart: unless-stopped
+  #   environment:
+  #     - POSTGRES_USER=crypto_trader
+  #     - POSTGRES_PASSWORD=your_secure_password_here
+  #     - POSTGRES_DB=crypto_trading
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   networks:
+  #     - crypto-trader-network
+  #   ports:
+  #     - "5432:5432"
+
+networks:
+  crypto-trader-network:
+    driver: bridge
+
+# volumes:
+#   postgres-data:
