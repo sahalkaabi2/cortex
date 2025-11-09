@@ -13,7 +13,36 @@
 
 ## Screenshots
 
-*Coming soon - Add your screenshots here to showcase Cortex's dashboard, performance charts, and activity feed*
+### Main Dashboard
+![Cortex Main Dashboard](public/screenshots/dashboard-main.png)
+
+### Decisions & Portfolio Tracking
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/screenshots/dashboard-decisions.png" alt="Trading Decisions" />
+      <p align="center"><em>LLM Trading Decisions with Reasoning</em></p>
+    </td>
+    <td width="50%">
+      <img src="public/screenshots/dashboard-portfolio.png" alt="Portfolio Positions" />
+      <p align="center"><em>Active Positions with P&L</em></p>
+    </td>
+  </tr>
+</table>
+
+### System Health & Settings
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/screenshots/health-check.png" alt="Health Check" />
+      <p align="center"><em>Real-time System Health Monitor</em></p>
+    </td>
+    <td width="50%">
+      <img src="public/screenshots/settings-modal.png" alt="Settings" />
+      <p align="center"><em>LLM Configuration & Trading Settings</em></p>
+    </td>
+  </tr>
+</table>
 
 ## Features
 
